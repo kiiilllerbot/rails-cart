@@ -1,24 +1,46 @@
 # README
+A simple Rails Ecommerce App Integrated with Paypal & Stripe Payment.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Basic Interface (Stripe Payment)
+![alt text](https://i.imgur.com/0RyrUuH.png)
 
-Things you may want to cover:
+# Basic Interface (PayPal Payment)
+![alt text](https://i.imgur.com/OFoWSTv.png)
 
-* Ruby version
 
-* System dependencies
+* Ruby version: 2.7.5
 
-* Configuration
+* Rails version: 5.2.3
 
-* Database creation
+* Node version: 16.3.1
 
-* Database initialization
+* Development Database: SQLite
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# Instructions to run in your Local Machine:
+*(1) Clone the Repo.
 
-* Deployment instructions
-
-* ...
+*(2) Install all the dependencies. Run
+```
+bundle install
+```
+*(3) Create and Migrate Database. Run
+```
+rails db:create
+rails db:migrate
+```
+*(3) Add Paypal & Stripe Credentials on config/application.yml file:
+```
+test: &default
+  PAYPAL_ENV: sandbox
+  PAYPAL_CLIENT_ID: 	 	YOUR_CREDENTIAL_HERE
+  PAYPAL_CLIENT_SECRET: 	YOUR_CREDENTIAL_HERE
+  STRIPE_PUBLISHABLE_KEY:	YOUR_CREDENTIAL_HERE
+  STRIPE_SECRET_KEY: 	YOUR_CREDENTIAL_HERE
+development:
+  <<: *default
+```
+*(4) Spin up your local development server. Run
+```
+rails s
+```
